@@ -1,5 +1,5 @@
 # polkish
-a very very simple and bloat library for exec wrapper between policykit's and sudo like programs
+a very very simple library for exec wrapper between policykit's and sudo like programs
 
 ## Installation
 ```sh

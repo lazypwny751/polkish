@@ -1,32 +1,5 @@
 #!/bin/bash
 
-polkish.sudo() {
-	if command -v "${FUNCNAME##*.}" &> /dev/null ; then
-		sudo "${@}"
-	else
-		echo "${0##*/}: \"${FUNCNAME##*.}\" not found!"
-		return 1
-	fi
-}
-
-polkish.doas() {
-	if command -v "${FUNCNAME##*.}" &> /dev/null ; then
-		doas "${@}"
-	else
-		echo "${0##*/}: \"${FUNCNAME##*.}\" not found!"
-		return 1
-	fi
-}
-
-polkish.pkexec() {
-	if command -v "${FUNCNAME##*.}" &> /dev/null ; then
-		pkexec "${@}"
-	else
-		echo "${0##*/}: \"${FUNCNAME##*.}\" not found!"
-		return 1
-	fi
-}
-
 polkish.exec() {
 	local i=""
 	local PRIO=(
@@ -46,7 +19,7 @@ polkish.exec() {
 	done
 
 	if "${status}" ; then
-		polkish."${DEFAULT}" "${@}"
+		exec "${DEFAULT}" "${@}"
 	else
 		echo "${0##*/}: ${FUNCNAME%*.}: couldn't determine priority of that programs: \"${PRIO[@]}\"."
 		return 1
