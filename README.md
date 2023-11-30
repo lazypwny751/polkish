@@ -10,6 +10,7 @@ sudo make all
 
 ## Usage
 ```sh
+# in bash script
 source /usr/local/lib/bash/5.1/polkish.sh
 polkish.exec whoami
 # or directly on command line:
